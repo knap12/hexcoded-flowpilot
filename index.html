@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FlowPilot — HexCoded Product Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">H</div>
+        <div>
+          <div class="brand-name">HEXCODED</div>
+          <div class="brand-sub">PRODUCT CONCEPT</div>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-item active"><span>◫</span> Creative Studio</button>
+        <button class="nav-item"><span>◉</span> Actors</button>
+        <button class="nav-item"><span>⌁</span> Assets</button>
+        <button class="nav-item"><span>✦</span> FlowPilot <b class="beta">BETA</b></button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="profile">
+          <div class="avatar">AG</div>
+          <div><strong>Alina</strong><small>Product prototype</small></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">FLOWPILOT / CAMPAIGN WORKFLOW</div>
+          <h1>Veloura Serum Launch</h1>
+        </div>
+        <div class="top-actions">
+          <button class="ghost" id="resetBtn">Reset demo</button>
+          <button class="primary" id="runQaBtn">✦ Run Creative QA</button>
+        </div>
+      </header>
+
+      <section class="concept-note">
+        <div>
+          <div class="eyebrow">PROPOSED HEXCODED PRODUCT CONCEPT</div>
+          <h2>FlowPilot helps creative teams keep multi-step AI campaigns consistent.</h2>
+          <p>It turns the original brief into persistent production rules, carries them through the workflow, and flags inconsistencies before delivery.</p>
+        </div>
+        <div class="prototype-note">
+          <strong>Prototype scope</strong>
+          <span>Interactive product experience with simulated AI generation and QA actions.</span>
+        </div>
+      </section>
+
+      <section class="brief-card">
+        <div class="brief-header">
+          <div>
+            <div class="eyebrow">CREATIVE BRIEF</div>
+            <h2>Turn one brief into a production-ready AI workflow.</h2>
+          </div>
+          <div class="status-dot"><span></span> Ready</div>
+        </div>
+
+        <textarea id="briefInput">Create a 30-second luxury skincare campaign for Veloura Night Serum. Dark editorial look, warm gold accents, one consistent female lead, premium macro product shots, 16:9 hero film plus 9:16 social cutdowns. No text except final end card.</textarea>
+
+        <div class="brief-actions">
+          <div class="chips">
+            <span>Luxury</span><span>Editorial</span><span>30 sec</span><span>Multi-format</span>
+          </div>
+          <button class="secondary" id="buildBtn">Build workflow →</button>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <section class="canvas-panel">
+          <div class="panel-head">
+            <div>
+              <div class="eyebrow">WORKFLOW CANVAS</div>
+              <div class="subtle">Click a node to inspect it. Drag the canvas horizontally on smaller screens.</div>
+            </div>
+            <div class="legend">
+              <span><i class="dot input"></i> Input</span>
+              <span><i class="dot gen"></i> Generate</span>
+              <span><i class="dot guard"></i> Guardrail</span>
+            </div>
+          </div>
+
+          <div class="canvas-wrap">
+            <div class="canvas" id="canvas">
+              <svg class="connections" viewBox="0 0 1120 620" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M160 120 C260 120 245 120 330 120"/>
+                <path d="M480 120 C565 120 535 120 630 120"/>
+                <path d="M780 120 C870 120 830 120 930 120"/>
+                <path d="M405 180 C405 265 405 240 405 315"/>
+                <path d="M705 180 C705 265 705 240 705 315"/>
+                <path d="M1010 180 C1010 265 1010 240 1010 315"/>
+                <path d="M485 375 C570 375 545 375 630 375"/>
+                <path d="M785 375 C865 375 835 375 930 375"/>
+                <path d="M1010 435 C1010 515 1010 485 1010 555"/>
+              </svg>
+
+              <button class="node input-node selected" style="left:40px; top:70px" data-node="brief">
+                <div class="node-icon">✎</div>
+                <div><small>INPUT</small><strong>Creative Brief</strong><span>Campaign goals + constraints</span></div>
+              </button>
+
+              <button class="node" style="left:325px; top:70px" data-node="concept">
+                <div class="node-icon">✦</div>
+                <div><small>AGENT</small><strong>Concept Director</strong><span>3 creative directions</span></div>
+              </button>
+
+              <button class="node guard-node" style="left:625px; top:70px" data-node="brand">
+                <div class="node-icon">◆</div>
+                <div><small>GUARDRAIL</small><strong>Brand Lock</strong><span>Palette + visual rules</span></div>
+              </button>
+
+              <button class="node" style="left:930px; top:70px" data-node="story">
+                <div class="node-icon">▦</div>
+                <div><small>PLAN</small><strong>Storyboard</strong><span>6 shots, timed</span></div>
+              </button>
+
+              <button class="node" style="left:325px; top:315px" data-node="image">
+                <div class="node-icon">◩</div>
+                <div><small>GENERATE</small><strong>Hero Frames</strong><span>Image model routing</span></div>
+              </button>
+
+              <button class="node guard-node" style="left:625px; top:315px" data-node="character">
+                <div class="node-icon">◎</div>
+                <div><small>GUARDRAIL</small><strong>Character Lock</strong><span>Face + wardrobe continuity</span></div>
+              </button>
+
+              <button class="node" style="left:930px; top:315px" data-node="video">
+                <div class="node-icon">▶</div>
+                <div><small>GENERATE</small><strong>Video Shots</strong><span>Model per shot</span></div>
+              </button>
+
+              <button class="node qa-node" style="left:930px; top:500px" data-node="qa">
+                <div class="node-icon">✓</div>
+                <div><small>QUALITY</small><strong>Creative QA</strong><span>Continuity + spec check</span></div>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="inspector">
+          <div class="panel-head">
+            <div>
+              <div class="eyebrow">FLOWPILOT AGENT</div>
+              <h3 id="inspectTitle">Creative Brief</h3>
+            </div>
+            <span class="agent-badge">AI</span>
+          </div>
+
+          <div id="inspectorContent" class="inspector-content">
+            <p class="agent-text">I extracted 8 production constraints from your brief and used them to build the workflow.</p>
+            <div class="constraint-list">
+              <div><span>✓</span> 30-second hero film</div>
+              <div><span>✓</span> 16:9 + 9:16 outputs</div>
+              <div><span>✓</span> Dark editorial aesthetic</div>
+              <div><span>✓</span> Warm gold accent palette</div>
+              <div><span>✓</span> One consistent lead</div>
+              <div><span>✓</span> Macro product photography</div>
+              <div><span>✓</span> No text before end card</div>
+            </div>
+          </div>
+
+          <div class="agent-composer">
+            <input id="agentInput" placeholder="Ask FlowPilot to change the workflow..." />
+            <button id="agentSend">↑</button>
+          </div>
+        </aside>
+      </div>
+
+      <section class="qa-panel hidden" id="qaPanel">
+        <div class="qa-header">
+          <div>
+            <div class="eyebrow">CREATIVE QA RESULTS</div>
+            <h2>87% production ready</h2>
+          </div>
+          <div class="score-ring">87</div>
+        </div>
+
+        <div class="metrics">
+          <div><small>BRAND MATCH</small><strong>96%</strong><span class="bar"><i style="width:96%"></i></span></div>
+          <div><small>BRIEF ADHERENCE</small><strong>92%</strong><span class="bar"><i style="width:92%"></i></span></div>
+          <div><small>CHARACTER CONSISTENCY</small><strong>71%</strong><span class="bar"><i style="width:71%"></i></span></div>
+          <div><small>TECHNICAL SPECS</small><strong>89%</strong><span class="bar"><i style="width:89%"></i></span></div>
+        </div>
+
+        <div class="issues">
+          <div class="issue warning">
+            <div class="issue-icon">!</div>
+            <div><strong>Shot 04: character drift detected</strong><p>Face geometry and wardrobe differ from the locked reference.</p></div>
+            <button class="fix-btn" data-fix="character">Fix with Agent</button>
+          </div>
+          <div class="issue warning">
+            <div class="issue-icon">!</div>
+            <div><strong>Shot 05: unintended text</strong><p>Generated packaging contains text before the final end card.</p></div>
+            <button class="fix-btn" data-fix="text">Fix with Agent</button>
+          </div>
+          <div class="issue ok">
+            <div class="issue-icon">✓</div>
+            <div><strong>Aspect-ratio coverage complete</strong><p>Hero 16:9 and social 9:16 variants are present.</p></div>
+            <span class="passed">PASSED</span>
+          </div>
+        </div>
+      </section>
+      <footer class="prototype-footer">FlowPilot — product concept by Alina Gusev · Built for HexCoded creative professionals</footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
